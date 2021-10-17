@@ -6,8 +6,17 @@ import { markRepoAsTweeted } from "./fauna.ts";
 export const main = async () => {
   const repo = await getRepoToTweet(ProgrammingLanguage.TypeScript);
   if (repo) {
-    await tweetRepo(repo);
-    await markRepoAsTweeted(repo);
+    try {
+      await tweetRepo(repo);
+    } catch(error) {
+      console.error("Something went wrong tweeting the repo:", error);
+    }
+
+    try {
+      await markRepoAsTweeted(repo);
+    } catch(error) {
+      console.error("Something went wrong marking the repo as tweeted:", error);
+    }
   }
 };
 

@@ -35,5 +35,4 @@ export const tweetRepo = async (repo: Repo): Promise<void> => {
     status:
       `🚀 ${repo.author} /  ${repo.name} \n\n⭐ ${repo.stars}\n\n🔎 ${description}\n\n#typescript\n\n${repoUrl}`,
   });
-  console.log(res);
 };

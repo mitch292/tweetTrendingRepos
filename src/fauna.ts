@@ -17,7 +17,6 @@ export const markRepoAsTweeted = async (repo: Repo): Promise<void> => {
     id: faunaId,
     data: { ...repo, lastTweetDate: new Date().toISOString() },
   });
-  console.log(res);
 };
 
 export const getAllReposForLanguange = async (
