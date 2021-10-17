@@ -33,6 +33,6 @@ export const tweetRepo = async (repo: Repo): Promise<void> => {
 
   await twitter.post("statuses/update.json", {
     status:
-      `🚀 ${repo.author} /  ${repo.name} \n\n⭐ ${repo.stars}\n\n🔎 ${description}\n\n${repoUrl}`,
+      `🚀 ${repo.author} /  ${repo.name} \n\n⭐ ${repo.stars}\n\n🔎 ${description}\n\n#typescript\n\n${repoUrl}`,
   });
 };
