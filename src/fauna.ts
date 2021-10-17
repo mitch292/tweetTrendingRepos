@@ -13,10 +13,11 @@ export const markRepoAsTweeted = async (repo: Repo): Promise<void> => {
   const faunaId = repo._id;
   delete repo._id;
 
-  await makeFaunaRequest(query, {
+  const res = await makeFaunaRequest(query, {
     id: faunaId,
     data: { ...repo, lastTweetDate: new Date().toISOString() },
   });
+  console.log(res);
 };
 
 export const getAllReposForLanguange = async (
