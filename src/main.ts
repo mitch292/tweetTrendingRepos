@@ -9,13 +9,13 @@ export const main = async () => {
     try {
       await tweetRepo(repo);
     } catch(error) {
-      console.error("Something went wrong tweeting the repo:", error);
+      console.log("Something went wrong tweeting the repo:", error);
     }
 
     try {
       await markRepoAsTweeted(repo);
     } catch(error) {
-      console.error("Something went wrong marking the repo as tweeted:", error);
+      console.log("Something went wrong marking the repo as tweeted:", error);
     }
   }
 };

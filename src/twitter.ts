@@ -17,6 +17,8 @@ export const tweetRepo = async (repo: Repo): Promise<void> => {
     );
   }
 
+  console.log("the vals for auth", TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_TOKEN_SECRET, TWITTER_CONSUMER_API_KEY, TWITTER_CONSUMER_API_SECRET)
+
   const twitter = new TwitterApi({
     consumerApiKey: TWITTER_CONSUMER_API_KEY,
     consumerApiSecret: TWITTER_CONSUMER_API_SECRET,
@@ -31,7 +33,7 @@ export const tweetRepo = async (repo: Repo): Promise<void> => {
     description = `${description.slice(0, 97)}...`;
   }
 
-  const res = await twitter.post("statuses/update.json", {
+  await twitter.post("statuses/update.json", {
     status:
       `🚀 ${repo.author} /  ${repo.name} \n\n⭐ ${repo.stars}\n\n🔎 ${description}\n\n#typescript\n\n${repoUrl}`,
   });
