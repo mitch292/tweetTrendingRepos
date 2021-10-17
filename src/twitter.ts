@@ -33,8 +33,9 @@ export const tweetRepo = async (repo: Repo): Promise<void> => {
     description = `${description.slice(0, 97)}...`;
   }
 
-  await twitter.post("statuses/update.json", {
+  const res= await twitter.post("statuses/update.json", {
     status:
       `🚀 ${repo.author} /  ${repo.name} \n\n⭐ ${repo.stars}\n\n🔎 ${description}\n\n#typescript\n\n${repoUrl}`,
   });
+  console.log('the res from twitter:', res);
 };
