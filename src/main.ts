@@ -5,6 +5,7 @@ import { markRepoAsTweeted } from "./fauna.ts";
 
 export const main = async () => {
   const repo = await getRepoToTweet(ProgrammingLanguage.TypeScript);
+  console.log('the repo found', repo);
   if (repo) {
     try {
       await tweetRepo(repo);
