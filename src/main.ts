@@ -23,10 +23,6 @@ export const main = async () => {
   }
 };
 
-if (import.meta.main) {
-  await main();
-}
-
 export const handleRequest = async (request: Request) => {
   const bearerToken = request.headers.get("authorization");
   if (

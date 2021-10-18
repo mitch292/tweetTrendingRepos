@@ -22,6 +22,9 @@ export const tweetRepo = async (repo: Repo): Promise<void> => {
     description = `${description.slice(0, 97)}...`;
   }
 
+  const hashTags = repo.hashtags.length ? `${repo.hashtags.join(" ")}\n\n` : "";
+  const twitterHandle = repo.twitterHandle ? `${repo.twitterHandle}\n\n` : "";
+
   const res = await fetch(TWITTER_PROXY_URL, {
     method: "POST",
     headers: {
@@ -31,7 +34,7 @@ export const tweetRepo = async (repo: Repo): Promise<void> => {
     },
     body: JSON.stringify({
       status:
-        `🚀 ${repo.author} /  ${repo.name} \n\n⭐ ${repo.stars}\n\n🔎 ${description}\n\n#typescript\n\n${repo.repoUrl}`,
+        `🚀 ${repo.author} / ${repo.name} \n\n⭐ ${repo.stars}\n\n🔎 ${description}\n\n${hashTags}${twitterHandle}${repo.repoUrl}`,
     }),
   });
 
