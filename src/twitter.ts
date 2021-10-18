@@ -17,8 +17,6 @@ export const tweetRepo = async (repo: Repo): Promise<void> => {
     );
   }
 
-  console.log("the vals for auth", TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_TOKEN_SECRET, TWITTER_CONSUMER_API_KEY, TWITTER_CONSUMER_API_SECRET)
-
   const twitter = new TwitterApi({
     consumerApiKey: TWITTER_CONSUMER_API_KEY,
     consumerApiSecret: TWITTER_CONSUMER_API_SECRET,
