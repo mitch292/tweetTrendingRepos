@@ -35,7 +35,7 @@ export const tweetRepo = async (repo: Repo): Promise<void> => {
     status:
       `🚀 ${repo.author} /  ${repo.name} \n\n⭐ ${repo.stars}\n\n🔎 ${description}\n\n#typescript\n\n${repo.repoUrl}`,
   });
-  console.log(res)
+  console.log(res.url, res)
   if (res.status !== 200) {
     throw Error(res.statusText);
   }
