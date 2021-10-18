@@ -10,4 +10,6 @@ export const TWITTER_ACCESS_TOKEN = Deno.env.get("TWITTER_ACCESS_TOKEN");
 export const TWITTER_ACCESS_TOKEN_SECRET = Deno.env.get(
   "TWITTER_ACCESS_TOKEN_SECRET",
 );
-export const GITHUB_BASE_URL = "https://github.com";
+export const API_TOKEN = Deno.env.get("API_TOKEN");
+export const TWITTER_PROXY_URL =
+  "https://9y8s85bx45.execute-api.us-east-1.amazonaws.com/dev/tweet";
