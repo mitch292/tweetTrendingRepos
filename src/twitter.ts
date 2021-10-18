@@ -26,8 +26,6 @@ export const tweetRepo = async (repo: Repo): Promise<void> => {
     accessTokenSecret: TWITTER_ACCESS_TOKEN_SECRET,
   });
 
-  const repoUrl = `${GITHUB_BASE_URL}/${repo.author}/${repo.name}`;
-
   let description = repo.description;
   if (description && description.length > 100) {
     description = `${description.slice(0, 97)}...`;
@@ -35,7 +33,7 @@ export const tweetRepo = async (repo: Repo): Promise<void> => {
 
   const res = await twitter.post("statuses/update.json", {
     status:
-      `🚀 ${repo.author} /  ${repo.name} \n\n⭐ ${repo.stars}\n\n🔎 ${description}\n\n#typescript\n\n${repoUrl}`,
+      `🚀 ${repo.author} /  ${repo.name} \n\n⭐ ${repo.stars}\n\n🔎 ${description}\n\n#typescript\n\n${repo.repoUrl}`,
   });
   console.log(res)
   if (res.status !== 200) {
