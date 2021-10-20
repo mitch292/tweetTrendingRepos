@@ -24,7 +24,7 @@ export const filterForReposNotRecentlyPosted = (repos: Repo[]): Repo[] => {
     const today = new Date();
     const diff = difference(lastTweetDate, today, { units: ["weeks"] });
 
-    return (diff.weeks || 0) > 1;
+    return (diff.weeks || 0) > 3;
   });
 };
 
