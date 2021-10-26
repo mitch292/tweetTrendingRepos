@@ -12,7 +12,7 @@ export const filterForRecentRepos = (repos: Repo[]): Repo[] => {
     const today = new Date();
     const diff = difference(repoTrendingDate, today, { units: ["days"] });
 
-    return diff.days || 0 < RECENT_REPO_THRESHOLD;
+    return (diff.days || 0) < RECENT_REPO_THRESHOLD;
   });
 };
 

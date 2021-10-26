@@ -24,7 +24,7 @@ export const getAllReposForLanguange = async (
 ): Promise<Repo[]> => {
   const query = `
 		query fetchAllReposForLanguage($programmingLanguage: String!) {
-			reposByLanguage(programmingLanguage: $programmingLanguage) {
+			reposByLanguage(programmingLanguage: $programmingLanguage, _size: 1000) {
 				data {
 					_id
 					internalId
@@ -41,6 +41,8 @@ export const getAllReposForLanguange = async (
 					lastTweetDate
 					optedOut
 				}
+        before
+        after
 			}
 		}
   `;
@@ -52,7 +54,6 @@ export const getAllReposForLanguange = async (
     if (error) {
       throw error;
     }
-
     return data.reposByLanguage.data;
   } catch (error) {
     throw error;
